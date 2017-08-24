@@ -47,12 +47,18 @@ disqus_shortname: simonninon
 # ga_tracking_id: "UA-XXXX-1"
 
 # Category descriptions (for archive pages)
-# descriptions:
-#   - cat: jekyll
-#     desc: "Posts describing Jekyll setup techniques."
-#
-#   - cat: dummy
-#     desc: "Just some placeholder posts, lorem ipsum and the rest."
+descriptions:
+  - cat: french 
+    desc: "french posts"
+
+  - cat: english
+    desc: "english posts"
+
+  - cat: c++
+    desc: "C++ posts"
+
+  - cat: rails
+    desc: "Ruby on Rails posts"
 
 # Social icons and sharing options
 #

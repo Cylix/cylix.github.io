@@ -4,6 +4,7 @@ title: "Suivre la production avec Errbit"
 date:  2015-03-27 20:54:44 +0100
 description: Tutoriel qui explique comment installer Errbit, un puissant outil pour verifier la production d'une application Rake
 cover: /assets/header_image.jpg
+tags: rails french
 ---
 
 # Késako?
