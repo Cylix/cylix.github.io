@@ -36,7 +36,8 @@ Dans mon cas, il s'agit d'OVH. Si vous n'êtes pas chez OVH: pas de panique, la 
 
 Ainsi, dans le cas d'OVH, une fois connecté, il vous suffit de vous rendre dans `domaine & DNS > Serveurs DNS > Modification`. Vous aurez alors un menu comme sur la photo suivante:
 
-{% img /assets/deploy_rails_app_on_dedicated_server/ovh_manager_dns_configuration.png OVH Manager Configuration DNS %}
+
+<img src="/assets/deploy_rails_app_on_dedicated_server/ovh_manager_dns_configuration.png" title="OVH Manager Configuration DNS"/>
 
 Vous l'aurez remarqué, dans le screenshot, j'ai configuré les DNS de mon serveur dédié:
 
@@ -55,7 +56,7 @@ C'est le cas d'OVH par exemple: il vous est ainsi possible de faire pointer les 
 
 La 2ème étape consiste à préparer son dédié: c'est assez simple, il suffit d'installer une série de packages: apache, ruby, ...
 
-{% codeblock lang:bash Préparer son dédié %}
+{% highlight bash %}
 # On installe apache
 $ sudo apt-get install apache2
 
@@ -75,7 +76,7 @@ $ gem install rails --no-ri --no-rdoc
 
 # On installe passenger
 $ gem install passenger
-{% endcodeblock %}
+{% endhighlight %}
 
 Dans le cadre de ce tutoriel, j'ai décidé d'utiliser `bind9` en tant que serveur DNS et `apache2` en tant que serveur web. Si vous avez d'autres préférences, par exemple `nginx` en tant que web serveur, n'hésitez pas.
 Sachez cependant que pour faire fonctionner `phusion passenger`, vous devez avoir un serveur web `apache` ou `nginx`.
@@ -86,13 +87,13 @@ Il est maintenant temps de s'occuper de la configuration de notre serveur web: d
 
 On commence par l'installation du plugin passenger pour apache:
 
-{% codeblock lang:bash Installation du module Passenger %}
+{% highlight bash %}
 # Dans le cas où vous utilisez apache
 $ passenger-install-apache2-module
 
 # Dans le cas où vous utilisez nginx
 $ passenger-install-nginx-module
-{% endcodeblock %}
+{% endhighlight %}
 
 Lorsque vous allez exécuter l'une de ces deux commandes, l'installateur va vérifier que vous avez bien installer tous les packets nécessaires à l'installation du module.
 S'il vous manque des dépendances, pas de soucis: passenger vous indique celles qu'il vous manque et vous donne même les lignes de commande à utiliser pour les installer!
@@ -100,14 +101,14 @@ S'il vous manque des dépendances, pas de soucis: passenger vous indique celles 
 Une fois l'installation terminée, Passenger vous demande de rajouter quelques lignes à la fin de votre fichier de configuration apache. Ces lignes permettront à apache de load le module Passenger.
 Ainsi, dans mon cas, je vais tout simplement rajouter à la fin du fichier `/etc/apache2/apache2.conf`:
 
-{% codeblock lang:apacheconf /etc/apache2/apache2.conf %}
+{% highlight apacheconf %}
 # [...]
 LoadModule passenger_module /home/simon/.rvm/gems/ruby-2.1.4/gems/passenger-4.0.53/buildout/apache2/mod_passenger.so
 <IfModule mod_passenger.c>
   PassengerRoot /home/simon/.rvm/gems/ruby-2.1.4/gems/passenger-4.0.53
   PassengerDefaultRuby /home/simon/.rvm/gems/ruby-2.1.4/wrappers/ruby
 </IfModule>
-{% endcodeblock %}
+{% endhighlight %}
 
 Une fois le module passenger installé, il ne reste plus qu'à configurer apache pour lui indiquer dans quel dossier chercher notre application.
 Pour cela, apache définit 2 dossiers:
@@ -117,7 +118,7 @@ Pour cela, apache définit 2 dossiers:
 
 Ainsi, dans notre cas, nous allons créé un fichier `/etc/apache2/site-available/simon-ninon.fr` avec la configuration minimale à mettre pour une application rails tournant avec passenger:
 
-{% codeblock lang:apacheconf /etc/apache2/site-available/simon-ninon.fr %}
+{% highlight apacheconf %}
 <VirtualHost *:80>
   ServerName simon-ninon.fr
   ServerAlias www.simon-ninon.fr
@@ -127,7 +128,7 @@ Ainsi, dans notre cas, nous allons créé un fichier `/etc/apache2/site-availabl
     Options -MultiViews
   </Directory>
 </VirtualHost>
-{% endcodeblock %}
+{% endhighlight %}
 
 La configuration est en soit assez simple: on indique que le fichier de configuration concerne le cas où l'on reçoit une requète concernant `simon-ninon.fr` ou `www.simon-ninon.fr` et on indique que notre site se situe dans le dossier `/var/www/myBlog/public`.
 
@@ -138,16 +139,16 @@ Il est cependant important de noter deux détails qui sont des prérequis de pas
 
 Il ne nous reste alors plus qu'à activer notre site web en créant un lien symbolique dans le dossier `/etc/apache2/site-enabled`:
 
-{% codeblock lang:bash Activation de notre site %}
+{% highlight bash %}
 # Création du lien symbolique
 $ ln -s /etc/apache2/site-available/simon-ninon.fr /etc/apache2/site-enabled
-{% endcodeblock %}
+{% endhighlight %}
 
 Maintenant que notre serveur web est configuré, il ne reste plus qu'à le redémarrer pour appliquer les changements:
 
-{% codeblock lang:bash Redémarrage d'apache %}
+{% highlight bash %}
 $ sudo /etc/init.d/apache2 restart
-{% endcodeblock %}
+{% endhighlight %}
 
 # Configurer Bind
 
@@ -157,25 +158,25 @@ La configuration d'un serveur DNS est loin d'être aussi simple que celle d'un s
 Nous devons tout d'abord définir une "zone", c'est-à-dire un ensemble de nom de domaines sur lequel le serveur a autorité.
 Pour cela, il nous suffit de modifier le fichier `/etc/bind/named.conf.local` et d'y créer notre zone.
 
-{% codeblock lang:bash /etc/bind/named.conf.local %}
+{% highlight bash %}
 zone "simon-ninon.fr" {
   type master;
   file "/etc/bind/zones/simon-ninon.fr.db";
 };
-{% endcodeblock %}
+{% endhighlight %}
 
 Ici, on crée une zone nommée `simon-ninon.fr` de type `master` (à différencier de `slave`).
 Enfin, on indique que la configuration de la résolution des noms de domaine se trouve dans le fichier `/etc/bind/zones/simon-ninon.fr.db`.
 
 Comme vous vous en doutez, nous devons donc maintenant créer le fichier `/etc/bind/zones/simon-ninon.fr.db` afin de permettre à bind de fonctionner correctement.
 
-{% codeblock lang:bash /etc/bind/zones/simon-ninon.fr.db %}
+{% highlight bash %}
 $TTL 3h
 @ IN SOA simon-ninon.fr. simon.simon-ninon.fr. (2014110301 8H 2H 1W 1D)
 	IN	A	37.187.120.151
 	IN	NS	simon-ninon.fr.
 www	IN	CNAME	simon-ninon.fr.
-{% endcodeblock %}
+{% endhighlight %}
 
 Le contenu de ce fichier peut paraître perturbant au 1er abord. Je vais essayer de le clarifier ligne par ligne:
 
@@ -187,18 +188,18 @@ Le contenu de ce fichier peut paraître perturbant au 1er abord. Je vais essayer
 
 Enfin, afin que notre serveur DNS puisse fonctionner, il faut aboslument commenter deux lignes dans le fichier `/etc/bind/named.conf.options`:
 
-{% codeblock lang:bash /etc/bind/named.conf.options %}
+{% highlight bash %}
    #listen-on-v6 { ::1; };
    #listen-on { 127.0.0.1; };
-{% endcodeblock %}
+{% endhighlight %}
 
 En effet, si vous ne commentez pas ces lignes, votre serveur DNS ne sera réceptif qu'aux requètes locales mais pas aux requètes extérieurs... C'est loin d'être ce que l'on souhaite!
 
 Notre serveur DNS est donc normalement configuré, il ne reste plus qu'à le redémarrer pour appliquer les changements:
 
-{% codeblock lang:bash Redémarrage de bind %}
+{% highlight bash %}
 $ sudo /etc/init.d/bind9 restart
-{% endcodeblock %}
+{% endhighlight %}
 
 N'hésitez pas à vérifier que votre configuration a pu être chargée sans soucis: la moindre erreur provoquera un dysfonctionnement de bind.
 Pour cela, allez voir le fichier `/var/log/syslog`. Il vous tiendra au courant en cas d'erreur (ou de succès évidemment).
@@ -218,7 +219,7 @@ Vous avez également des outils à votre disposition pour vérifier votre config
 
 Notre serveur est maintenant prêt: le serveur web et le serveur DNS sont configurés comme il faut. Il ne nous reste donc plus qu'à déployer notre application au bon endroit:
 
-{% codeblock lang:bash Déployement de l'application %}
+{% highlight bash %}
 # On crée notre application rails
 $ cd ~
 $ rails new myBlog
@@ -229,12 +230,10 @@ $ bundle install
 
 # On fait en sorte qu'apache puisse la trouver
 $ sudo ln -s ~/myBlog /var/www
-{% endcodeblock %}
+{% endhighlight %}
 
 Ca y est, notre application est disponible sur notre nom de domaine `simon-ninon.fr`!
 
 Sachez que passenger tentera, par défaut, d'écrire les logs dans `/path/to/your/app/log/production.log`. S'il n'y arrive pas, vous pourrez les retrouver dans les fichiers de logs apache (dans `/var/log/apache2`).
 Ainsi, si vous avez une erreur après le déployement, n'hésitez pas à vous y référer afin de savoir ce qui ne va pas (par exemple, l'absence d'un javascript runtime tel qu'`execjs`).
-
-{% include about_simon_ninon.markdown %}
 

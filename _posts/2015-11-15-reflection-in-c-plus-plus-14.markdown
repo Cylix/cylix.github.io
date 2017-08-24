@@ -16,17 +16,17 @@ For example, we can have a `/articles` route which is linked to the `index` acti
 
 For my MVC project, I wanted it to be easy to configure the routes and to hide this part from the user. I didn't want the developer to declare his routes by writing C++ code: it would have been less convenient, less readable and maybe less maintainable.
 
-{% codeblock lang:c++ Routes configuration from C++ code %}
+{% highlight c++ %}
 router.add(Route{ HTTP::Method::GET, "/articles" }, &articles_controller::index);
 router.add(Route{ HTTP::Method::POST, "/articles" }, &articles_controller::create);
 router.add(Route{ HTTP::Method::GET, "/articles/:id" }, &articles_controller::show);
 router.add(Route{ HTTP::Method::PUT, "/articles/:id" }, &articles_controller::update);
 router.add(Route{ HTTP::Method::DELETE, "/articles/:id" }, &articles_controller::destroy);
-{% endcodeblock %}
+{% endhighlight %}
 
 Instead, I'd prefer to have a simple JSON configuration file where the developer can easily declare its routes.
 
-{% codeblock lang:json Routes configuration file %}
+{% highlight json %}
 {
   "/articles": [
     { "method": "GET", "to": "articles#index" },
@@ -38,7 +38,7 @@ Instead, I'd prefer to have a simple JSON configuration file where the developer
     { "method": "DELETE", "to": "articles#destroy" }
   ]
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 As you can see, by using this simple JSON configuration file, it would be really easy and readable to declare routes and to associate them to a specific action of a controller.
 
@@ -70,7 +70,7 @@ One simple way to make reflection in C++ is to use the `dlopen` and `dlsym` func
 
 It is indeed possible to load the current process symbols. Here is a citation of the dlopen man: `If a null pointer is passed in path, dlopen() returns a handle equivalent to RTLD_DEFAULT.`. And, here is a citation of the dlsym man: `If dlsym() is called with the special handle RTLD_DEFAULT, then all mach-o images in the process (except those loaded with dlopen(xxx, RTLD_LOCAL)) are searched in the order they were loaded.`.
 
-{% codeblock lang:c++ dlopen example %}
+{% highlight c++ %}
 #include <dlfcn.h>
 #include <iostream>
 
@@ -90,7 +90,7 @@ int main(void) {
 
   return 0;
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 In the above example, I simply call `dlopen` with a null pointer. Then, I'm able to retrieve the `display_nb` symbol of my short program.
 
@@ -144,13 +144,13 @@ This is a short constraints list and it guided me during the development by keep
 
 As I said in the constraints part, I want that the registration process should be as easy as possible and that reflection can be operated from anywhere in the code (starting from the first line of the main).
 
-{% codeblock lang:c++ manual initialization %}
+{% highlight c++ %}
 int main(void) {
   REGISTER_CLASS(SomeClass)
   REGISTER_MEMBER_FUNCTION(SomeClass::some_function)
   // ...
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 In the above code snippet, you can read a perfect example of what I want to avoid. The problem here is that the developer has to explicitly declare his classes and member functions from one of his own functions or from the main.
 The problem with that behavior is that if the developer use reflection on a type before registering this type, it will fail. Moreover, it is not really convenient for the developer to think to register a specific class at program startup.
@@ -159,7 +159,7 @@ We will need to automate this step so that the developer does not have to think 
 
 And for this, we have static variables! Static variables are initialized automatically at program startup. The following example demonstrates it very easily:
 
-{% codeblock lang:c++ static variable initialization %}
+{% highlight c++ %}
 #include <iostream>
 
 class A {
@@ -173,16 +173,16 @@ int main(void) {
   std::cout << "main()" << std::endl;
   return 0;
 }
-{% endcodeblock %}
+{% endhighlight %}
 
-{% codeblock output %}
+{% highlight bash %}
 A::A()
 main()
-{% endcodeblock %}
+{% endhighlight %}
 
 So, what if we just simply use static variables to initialize our reflection engine? We can declare a static variable for each class and function we want to register. This will move the registration code from the main (or any other function) to a static member function that will handle the registration during its construction.
 
-{% codeblock lang:c++ static variable initialization %}
+{% highlight c++ %}
 class reflectable {
 public:
   //! constructor of a reflectable class where we can process the registration
@@ -196,7 +196,7 @@ static reflectable register_some_class;
 int main(void) {
   //! process reflection
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 ### Manager
 
@@ -211,7 +211,7 @@ Of course, this reflection_manager will be implemented as a singleton in order t
 
 The idea is simple: each reflectable registers itself to the reflection_manager during its construction. Then, the developer calls the reflection_manager to operate the reflection.
 
-{% codeblock lang:c++ reflection manager %}
+{% highlight c++ %}
 class reflection_manager {
 public:
   ~reflection_manager(void) = default;
@@ -251,7 +251,7 @@ static reflectable register_some_class("SomeClass");
 int main(void) {
   reflection_manager::get_instance().process_reflection("SomeClass");
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 The above code is just to make you understand the main idea behind the reflection manager: information centralization.
 
@@ -267,7 +267,7 @@ Moreover, we will also need the type's name. If we don't have it, we won't be ab
 
 Let's update our reflectable class with these elements:
 
-{% codeblock lang:c++ class registration %}
+{% highlight c++ %}
 template <typename T>
 class reflectable {
 public:
@@ -286,12 +286,12 @@ private:
 };
 
 static reflectable<SomeClass> register_some_class("SomeClass");
-{% endcodeblock %}
+{% endhighlight %}
 
 There is however a problem now: the manager can't store all the reflectable instances in the same container because of the addition of the template.
 So, if we want to have a unique container containing all the reflectable objects, we will need to create an abstraction of the reflectable type.
 
-{% codeblock lang:c++ reflectable abstraction %}
+{% highlight c++ %}
 class reflectable_base {
 public:
   virtual ~reflectable_base(void) = default;
@@ -315,11 +315,11 @@ public:
 private:
   std::string name;
 };
-{% endcodeblock %}
+{% endhighlight %}
 
 Then, instead of storing reflectable objects, we will simply store reflectable_base objects in our manager.
 
-{% codeblock lang:c++ reflection manager %}
+{% highlight c++ %}
 class reflection_manager {
 public:
   ~reflection_manager(void) = default;
@@ -352,7 +352,7 @@ private:
 int main(void) {
   reflection_manager::get_instance().process_reflection("SomeClass");
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 Simple isn't it?
 
@@ -374,7 +374,7 @@ We may store all of this information in a container (for example a vector of `pa
 
 So, we need to operate differently: for example, taking a variable number of parameters in our reflectable constructor. This is absolutely possible and very easy to integrate thanks to C++11 variadic templates.
 
-{% codeblock lang:c++ reflectable constructor for member functions %}
+{% highlight c++ %}
 template <typename T>
 class reflectable : reflectable_base {
 public:
@@ -397,7 +397,7 @@ private:
 static reflectable<SomeClass> register_some_class("SomeClass",
                                                   std::make_pair(std::string("some_fct_1"), &SomeClass::some_fct_1),
                                                   std::make_pair(std::string("some_fct_2"), &SomeClass::some_fct_2));
-{% endcodeblock %}
+{% endhighlight %}
 
 As you can see, we can now pass any member function as we want to our reflectable constructor. Functions can have any signature, this won't be a problem.
 You may notice that the declaration of the static reflectable object begins to be a little bit longer and annoying to do, but we will improve that later.
@@ -425,7 +425,7 @@ However, if there is a mismatch, the dynamic_cast will fail, resulting in an exc
 
 This is a lot of text and it may be a little hard to follow what I'm saying, so let's see some code to understand what I mean.
 
-{% codeblock lang:c++ function and function_base classes %}
+{% highlight c++ %}
 //! our function base class, non-templated.
 //! it does really nothing, except helping us to store functions in the same container
 class function_base {
@@ -453,11 +453,11 @@ public:
 private:
   std::function<ReturnType(Params...)> f;
 };
-{% endcodeblock %}
+{% endhighlight %}
 
 That's all for our function and function_base classes. In fact, as you can see, our function class is nothing more than a wrapper of std::function which inerits from function_base. This inheritance lets us store functions of different signatures in the same container.
 
-{% codeblock lang:c++ storing member functions %}
+{% highlight c++ %}
 template <typename Type>
 class reflectable : reflectable_base {
 public:
@@ -505,22 +505,22 @@ private:
   std::string name;
   std::vector<std::pair<std::string, std::shared_ptr<function_base>>> functions;
 };
-{% endcodeblock %}
+{% endhighlight %}
 
 Wahoo, that was short but intense. Maybe I should give some explanations about the previous piece of code.
 
-{% codeblock lang:c++ unpack %}
+{% highlight c++ %}
 //! iterate over the parameters pack
 template <typename Head, typename... Tail>
 void register_function(const Head& head, Tail... tail) {
   register_function(head);
   register_function(tail...);
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 First, we call the register_function in our constructor (`register_function(fcts...);`). This function is here to "unpack" the variadic parameters. It's not the topic of this article to explain how variadic templates work and how they should be used, so I won't give more explanations about it. If you are not really familiar with this modern feature of C++, I advise you to give a look at some articles treating this subject: it's a really important notion to know when developing softwares in C++.
 
-{% codeblock lang:c++ registration %}
+{% highlight c++ %}
 //! register specific member function
 template <typename ReturnType, typename... Params>
 void register_function(const std::pair<std::string, ReturnType (Type::*)(Params...)>& f) {
@@ -535,7 +535,7 @@ void register_function(const std::pair<std::string, ReturnType (Type::*)(Params.
     std::make_shared<function<ReturnType(Params...)>>(f_wrapper) //! function object
   });
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 Ok, so what are we doing here?
 
@@ -553,7 +553,7 @@ Very good, our member functions are now stored and ready to be used: we just hav
 
 Let's add the reflection!
 
-{% codeblock lang:c++ making reflection %}
+{% highlight c++ %}
 class reflection_manager {
 public:
   ~reflection_manager(void) = default;
@@ -606,7 +606,7 @@ private:
 int main(void) {
   reflection_manager::get_instance().reflect<void, int, double>("SomeClass", "some_fct", 1, 4.2); // will call SomeClass().some_fct(1, 4.2);
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 I think the code speaks from himself here: we retrieve the member functions, we search the function the user asked. If we found it, we try to downcast from function_base to function object. And if the dynamic cast worked, then, we can call our function!
 
@@ -617,7 +617,7 @@ But this syntax can't be applied to member functions.
 
 We can still however trick the language by creating a structure which wraps the call to reflection_manager::reflect<>. This structure will be templated on the function signature, just like the reflect member function. But here, we will be able to apply the std::function-template-design.
 
-{% codeblock lang:c++ syntax enhancement %}
+{% highlight c++ %}
 template <typename ReturnType, typename... Params>
 struct reflection_maker;
 
@@ -631,7 +631,7 @@ struct reflection_maker<ReturnType(Params...)> {
 int main(void) {
   reflection_maker<void(int, double)>::invoke("SomeClass", "some_fct", 1, 4.2); // will call SomeClass().some_fct(1, 4.2);
 }
-{% endcodeblock %}
+{% endhighlight %}
 
 Better don't you think?
 
@@ -643,11 +643,11 @@ As I said in the beginning, I want the registration process to be easy and as li
 
 However, if you remember our currently initialization process, it's quite heavy and painful:
 
-{% codeblock lang:c++ registration process %}
+{% highlight c++ %}
 static reflectable<SomeClass> register_some_class("SomeClass",
                                                   std::make_pair(std::string("some_fct_1"), &SomeClass::some_fct_1),
                                                   std::make_pair(std::string("some_fct_2"), &SomeClass::some_fct_2));
-{% endcodeblock %}
+{% endhighlight %}
 
 Not really convenient.
 
@@ -655,7 +655,7 @@ One way to simplify this is to use macros with the help of boost preprocessor li
 
 Boost preprocessor will help us to build macros with variadic number of arguments (for member functions), to iterate over these arguments and to build the static variable.
 
-{% codeblock lang:c++ macros %}
+{% highlight c++ %}
 //! macro to convert any kind of value to string
 #define __REFLEX_TO_STRING(val) #val
 
@@ -669,18 +669,18 @@ static reflectable<type> \
 reflectable_##type(#type, BOOST_PP_SEQ_FOR_EACH_I( __REFLEX_MAKE_REGISTERABLE_FUNCTION, \
                                                    type, \
                                                    functions ));
-{% endcodeblock %}
+{% endhighlight %}
 
 So, let's dive into the explanation.
 
-{% codeblock lang:c++ macros %}
+{% highlight c++ %}
 //! main macro who build the static variable
 #define REGISTER_CLASS(type, functions) \
 static reflectable<type> \
 reflectable_##type(#type, BOOST_PP_SEQ_FOR_EACH_I( __REFLEX_MAKE_REGISTERABLE_FUNCTION, \
                                                    type, \
                                                    functions ));
-{% endcodeblock %}
+{% endhighlight %}
 
 We define a macro which takes as parameters the type of the class and the functions names.
 These functions will be past as a boost preprocessor list: `(val1)(val2)(val3)`.
@@ -691,14 +691,14 @@ But, of course, member functions can't be passed with the actual boost preprosso
 
 For this, we use the boost PP macro, `BOOST_PP_SEQ_FOR_EACH_I`, to call our own macro `__REFLEX_MAKE_REGISTERABLE_FUNCTION` for each function of the list.
 
-{% codeblock lang:c++ macros %}
+{% highlight c++ %}
 //! macro to convert any kind of value to string
 #define __REFLEX_TO_STRING(val) #val
 
 //! macro called for each member function to build a pair of <string, member_function_pointer>
 #define __REFLEX_MAKE_REGISTERABLE_FUNCTION(r, type, i, function) \
 BOOST_PP_COMMA_IF(i) std::make_pair(std::string(__REFLEX_TO_STRING(function)), &type::function)
-{% endcodeblock %}
+{% endhighlight %}
 
 This macro is simple: it just builds a pair composed of the function name and the function pointer. We use `BOOST_PP_COMMA_IF` to separate each pair with the previous one.
 
@@ -708,9 +708,9 @@ In this case, the macros are quite simple, but it can quickly become a mess... J
 
 And here is the final result:
 
-{% codeblock lang:c++ final result %}
+{% highlight c++ %}
 REGISTER_CLASS(SomeClass, (fct_1)(fct_2)(fct_3))
-{% endcodeblock %}
+{% endhighlight %}
 
 Better!
 

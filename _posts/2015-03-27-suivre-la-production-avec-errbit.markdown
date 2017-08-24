@@ -17,7 +17,7 @@ L'intérêt est alors d'installer Airbrake sur son application Rails. Cette gem 
 
 En fonction de la configuration d'errbit, ce dernier va alors envoyer des mails à la "mailing-list" de l'application et va fournir une gestion de l'erreur sur une interface web (l'erreur est-elle traitée? faut-il ouvrir un ticket github? Combien de fois l'erreur est-elle survenue? Quelle est la callstack? ...).
 
-{% img /assets/suivre_la_production_avec_errbit/dashboard.png Errbit Dashboard %}
+<img src="/assets/suivre_la_production_avec_errbit/dashboard.png" title="Errbit Dashboard"/>
 
 L'installation de la Gem se divise donc en 2 parties:
 
@@ -32,40 +32,40 @@ Il faut dans un premier temps installer mongodb qui est utilisé par errbit pour
 Les étapes à suivre en fonction de chaque OS sont disponibles [ici](http://docs.mongodb.org/manual/installation/)
 
 Dans le cas de debian:
-{% codeblock lang:bash Installation de mongoDB %}
+{% highlight bash %}
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10 # On récupère la clé publique
 $ echo 'deb http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list # On ajoute le dépot
 $ sudo apt-get update # On met à jour la liste des dépots
 $ sudo apt-get install -y mongodb-org # On installe mongoDB
 $ sudo service mongod start # On démarre mongoDB
-{% endcodeblock %}
+{% endhighlight %}
 
 Quelque soit l'OS, et pour les besoins d'errbit, on enchaîne ensuite avec:
 
-{% codeblock lang:bash Installation du mongoDB %}
+{% highlight bash %}
 $ sudo apt-get install mongodb-10gen
-{% endcodeblock %}
+{% endhighlight %}
 
 ## Dépendances
 
 Errbit nécessite l'installation de quelques libs pour pouvoir fonctionner:
 
-{% codeblock lang:bash Installation des dépendances %}
+{% highlight bash %}
 $ sudo apt-get install libxml2 libxml2-dev libxslt-dev libcurl4-openssl-dev libzip-dev libssl-dev
-{% endcodeblock %}
+{% endhighlight %}
 
 ## Errbit
 
 Une fois toutes les dépendances installées, il est maintenant possible de déployer Errbit.
 
-{% codeblock lang:bash Déployer Errbit %}
+{% highlight bash %}
 $ git clone https://github.com/errbit/errbit # On clone les sources d'errbit
 $ git pull origin master # Pour récupérer les dernières mises à jours, on pull (ce n'est donc pas nécessaire après un clone)
 $ bundle install # On installe les dépendances
 $ RAILS_ENV=production rake errbit:bootstrap # On seed la DB
 $ RAILS_ENV=production rake assets:precompile # On précompile les assets
 $ RAILS_ENV=production rails server # On démarre le serveur (ça peut être autre chose, passenger par exemple)
-{% endcodeblock %}
+{% endhighlight %}
 
 Bien évidemment, `RAILS_ENV` est à définir en fonction de l'environnement dans lequel errbit va être lancé.
 
@@ -86,7 +86,7 @@ La liste complète des variables d'environnement que l'on peut setter sont dispo
 
 Il suffit alors simplement de setter les variables qui nous intéressent dans un fichier `.env` à la racine de l'application:
 
-{% codeblock lang:ruby Configuration d'errbit %}
+{% highlight ruby %}
 # Configuration du hostname
 ERRBIT_HOST = "errbit.simon-ninon.fr"
 # Configuration du mailer
@@ -96,7 +96,7 @@ GITHUB_CLIENT_ID = "some_github_client_id"
 GITHUB_SECRET = "some_github_secret"
 # Configuration du key secret
 SECRET_KEY_BASE = "some_secret_key_base"
-{% endcodeblock %}
+{% endhighlight %}
 
 Tout changement de configuration nécessite un redémarrage du serveur Rails.
 
@@ -108,7 +108,7 @@ Une fois le service web installé et configuré, il est temps d'associer notre a
 
 Pour cela, il faut dans un premier temps créer une application sur l'application Errbit. Cela nous générera une application API key que l'on pourra réutiliser dans notre application Rails.
 
-{% img /assets/suivre_la_production_avec_errbit/create_app.png Créer une app Errbit %}
+<img src="/assets/suivre_la_production_avec_errbit/create_app.png" title="Créer une app Errbit"/>
 
 ## Airbrake
 
@@ -127,18 +127,18 @@ Errbit les supporte toutes et saura quelle API est utilisée en fonction du form
 
 Pour utiliser l'API v2:
 
-{% codeblock lang:ruby Configuration d'airbrake, API v2 %}
+{% highlight ruby %}
 Airbrake.configure do |config|
   config.api_key = 'api_key'
   config.host    = 'host'
   config.port    = 80
   config.secure  = config.port == 443
 end
-{% endcodeblock %}
+{% endhighlight %}
 
 Pour utiliser l'API v3:
 
-{% codeblock lang:ruby Configuration d'airbrake, API v3 %}
+{% highlight ruby %}
 Airbrake.configure do |config|
   config.api_key 	= 'api_key'
   config.host    	= 'host'
@@ -152,7 +152,7 @@ class Airbrake::Sender
     true
   end
 end
-{% endcodeblock %}
+{% endhighlight %}
 
 
 ## Vérifier si ça fonctionne
@@ -165,11 +165,11 @@ Si ce n'est pas le cas, il est possible d'en savoir plus sur la raison de l'erre
 * Mauvaise API_KEY (invalide, périmée, ...)
 * Version de l'API mal gérée (il peut être intéressant de tester l'API v3 si ça ne marche pas avec la v2 et inversement).
 
-{% img /assets/suivre_la_production_avec_errbit/app_errors.png Liste d'erreurs d'une app %}
+<img src="/assets/suivre_la_production_avec_errbit/app_errors.png" title="Liste d'erreurs d'une app"/>
 
-{% img /assets/suivre_la_production_avec_errbit/error_summary.png Détails d'une erreur %}
+<img src="/assets/suivre_la_production_avec_errbit/error_summary.png" title="Détails d'une erreur"/>
 
-{% img /assets/suivre_la_production_avec_errbit/error_backtrace.png Callstack d'une erreur %}
+<img src="/assets/suivre_la_production_avec_errbit/error_backtrace.png" title="Callstack d'une erreur"/>
 
 ## Déploiement
 

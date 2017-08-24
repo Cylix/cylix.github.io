@@ -4,14 +4,19 @@ title: About
 permalink: /about/
 ---
 
-<img src="{{ site.baseurl }}/assets/profile-placeholder.gif" title="Profile Picture" class="profile">
+<img src="{{ site.baseurl }}/assets/simon_ninon.jpg" title="Profile Picture" class="profile">
 
-Centrarium is a custom theme for Jekyll, made by [Ben Centra][bencentra] for his own blog. He'd be humbled if you liked it enough to use it as well! Installation and configuration instructions can be found in the [GitHub repository](https://github.com/bencentra/centrarium).
+Hey, I'm Simon Ninon and I'm a French Software Engineer!
 
-This page is a good place to write about yourself, your project, your product, or whatever it is your site is for. You can replace the image above, or you can get rid of it entirely. 
+I recently successfully completed my Master degreee in CS at {Epitech.}, a French IT school known for its disruptive and innovative project-based pedagogy.
+I also had the opportunity to study for 2 quarters at UC San Diego (UCSD), one of the top U.S. research university at the beginning of my Master.
 
-You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/). And you can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+I love coding and I spend a consequent amount of time having fun by contributing to open source.
+Do not hesitate to checkout my Github to see what I'm currently building and what I already built!
 
-[centrarium]: https://github.com/bencentra/centrarium
-[bencentra]: http://bencentra.com
-[jekyll]: https://github.com/jekyll/jekyll
+I'm currently an happy software engineer at Whova (San Diego, CA), so I'm not looking for any job opportunities at the moment.
+But if you wish, connect with me on Linkedin to be up-to-date concerning my availabilities.
+
+[Github]: https://github.com/Cylix
+[Linkedin]: https://www.linkedin.com/in/simonninon/
+ 

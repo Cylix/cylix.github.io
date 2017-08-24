@@ -15,7 +15,7 @@ Pow est ainsi très pratique puisqu'il permet de lancer plusieurs applications r
 
 Par ailleurs, son utilisation est particulièrement simple:
 
-{% codeblock lang:bash Utilisation de Pow %}
+{% highlight bash %}
 $ cd mon_application_rack
 
 # on ajoute mon_application_rack sous le contrôle de pow
@@ -23,7 +23,7 @@ $ powit
 
 # Une autre manière d'ajouter mon_application_rack sous le contrôle de pow
 $ ln -s /path/to/mon_application_rack ~/.pow
-{% endcodeblock %}
+{% endhighlight %}
 
 Ainsi, mon application devient accessible en local à l'URL `mon_application_rack.dev`. Il n'y a pas besoin de s'embêter à démarrer son serveur ou à gérer un port de connexion par exemple: Pow se charge de tout!
 
@@ -40,7 +40,7 @@ Et bien malheureusement, les équivalents sous linux sont quasiment inexistants.
 
 Prax est un véritable Pow pour Linux. On retrouve ainsi un fonctionnement tout à faire similaire à celui de Pow:
 
-{% codeblock lang:bash Utilisation de Prax %}
+{% highlight bash %}
 $ cd mon_application_rack
 
 # On ajouter mon_application_rack sous le contrôle de prax
@@ -48,7 +48,7 @@ $ prax link
 
 # Une autre manière d'ajouter mon_application_rack sous le contrôle de prax
 $ ln -s /path/to/mon_application_rack ~/.prax
-{% endcodeblock %}
+{% endhighlight %}
 
 
 Et tout comme avec Pow, notre application devient disponible à l'URL `mon_application_rack.dev`!
@@ -63,6 +63,4 @@ Prax n'en demeure pas moins la meilleure alternative actuelle à Pow que je conn
 En savoir plus sur Prax:
 
 * [Github](https://github.com/ysbaddaden/prax)
-
-{% include about_simon_ninon.markdown %}
 
