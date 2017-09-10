@@ -5,6 +5,7 @@ date: 2014-11-06 02:58:15 +0100
 description: Présentation d'une alternative à Pow, un serveur d'applications rack, pour linux.
 cover: /assets/header_image.jpg
 tags: rails french
+author: Simon Ninon
 ---
 
 # Vous avez dit pow?

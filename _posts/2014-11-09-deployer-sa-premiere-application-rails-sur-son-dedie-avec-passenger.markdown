@@ -5,6 +5,7 @@ date: 2014-11-09 01:54:44 +0100
 description: Tutoriel qui explique comment déployer sa première application rails sur un serveur dédié
 cover: /assets/header_image.jpg
 tags: rails french
+author: Simon Ninon
 ---
 
 # Préambule
