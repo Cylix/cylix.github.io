@@ -4,7 +4,7 @@ title: "Déployer sa première application Rails sur son dédié avec Passenger"
 date: 2014-11-09 01:54:44 +0100
 description: Tutoriel qui explique comment déployer sa première application rails sur un serveur dédié
 cover: /assets/header_image.jpg
-tags: rails french
+categories: rails french
 author: Simon Ninon
 ---
 
@@ -210,7 +210,7 @@ Sachez cependant que la plupart du temps, les erreurs proviennent de petit déta
 
 * Oubli d'un `.` après un nom de domaine absolu
 * Oubli d'un type `NS` ou `A`
-* Format de l'adresse mail de contact erronée 
+* Format de l'adresse mail de contact erronée
 
 Vous avez également des outils à votre disposition pour vérifier votre configuration:
 
@@ -238,4 +238,3 @@ Ca y est, notre application est disponible sur notre nom de domaine `simon-ninon
 
 Sachez que passenger tentera, par défaut, d'écrire les logs dans `/path/to/your/app/log/production.log`. S'il n'y arrive pas, vous pourrez les retrouver dans les fichiers de logs apache (dans `/var/log/apache2`).
 Ainsi, si vous avez une erreur après le déployement, n'hésitez pas à vous y référer afin de savoir ce qui ne va pas (par exemple, l'absence d'un javascript runtime tel qu'`execjs`).
-

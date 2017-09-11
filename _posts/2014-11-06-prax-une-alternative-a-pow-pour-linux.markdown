@@ -4,7 +4,7 @@ title: "Prax: une alternative à Pow pour linux"
 date: 2014-11-06 02:58:15 +0100
 description: Présentation d'une alternative à Pow, un serveur d'applications rack, pour linux.
 cover: /assets/header_image.jpg
-tags: rails french
+categories: rails french
 author: Simon Ninon
 ---
 
@@ -13,7 +13,7 @@ author: Simon Ninon
 Pow est un serveur d'applications rack qui a la particularité de ne nécessiter aucune configuration.
 Pow est ainsi très pratique puisqu'il permet de lancer plusieurs applications rack en local sans se soucier de problématiques liées à la configuration de serveur.
 
-<!-- more --> 
+<!-- more -->
 
 Par ailleurs, son utilisation est particulièrement simple:
 
@@ -65,4 +65,3 @@ Prax n'en demeure pas moins la meilleure alternative actuelle à Pow que je conn
 En savoir plus sur Prax:
 
 * [Github](https://github.com/ysbaddaden/prax)
-

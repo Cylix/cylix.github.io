@@ -4,7 +4,7 @@ title: "Suivre la production avec Errbit"
 date:  2015-03-27 20:54:44 +0100
 description: Tutoriel qui explique comment installer Errbit, un puissant outil pour verifier la production d'une application Rake
 cover: /assets/header_image.jpg
-tags: rails french
+categories: rails french
 author: Simon Ninon
 ---
 
@@ -15,7 +15,7 @@ Le cœur du service est une API compatible avec airbrake.
 
 L'intérêt est alors d'installer Airbrake sur son application Rails. Cette gem va détecter les erreurs survenant en production et va notifier l'API d'errbit.
 
-<!-- more --> 
+<!-- more -->
 
 En fonction de la configuration d'errbit, ce dernier va alors envoyer des mails à la "mailing-list" de l'application et va fournir une gestion de l'erreur sur une interface web (l'erreur est-elle traitée? faut-il ouvrir un ticket github? Combien de fois l'erreur est-elle survenue? Quelle est la callstack? ...).
 
@@ -181,4 +181,3 @@ Les différentes configurations sont disponibles [ici]().
 
 Dans le cas de capistrano, il suffit d'ajouter la ligne `require 'airbrake/capistrano3'` dans le `Capfile`.
 Cela va créer de nouvelles tasks capistrano gérant cette notification.
-

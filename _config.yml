@@ -60,6 +60,10 @@ descriptions:
   - cat: rails
     desc: "Ruby on Rails posts"
 
+  - cat: open-source
+    desc: "open-source posts"
+
+
 # Social icons and sharing options
 #
 # Social settings are used in two places:
