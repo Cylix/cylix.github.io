@@ -44,11 +44,11 @@ jekyll-archives:
 disqus_shortname: simonninon
 
 # Google analytics
-# ga_tracking_id: "UA-XXXX-1"
+ga_tracking_id: "UA-37096952-3"
 
 # Category descriptions (for archive pages)
 descriptions:
-  - cat: french 
+  - cat: french
     desc: "french posts"
 
   - cat: english
