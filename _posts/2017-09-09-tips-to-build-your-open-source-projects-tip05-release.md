@@ -4,7 +4,7 @@ title: "Tips to successfully build your open-source projects<br/>#5. Release the
 date: 2017-09-09 20:46:00 +0100
 description: Some tips based on my experience and failures about how to successfully build an open-source project
 cover: /assets/header_image.jpg
-categories: open-source english
+tags: open-source english
 author: Simon Ninon
 ---
 

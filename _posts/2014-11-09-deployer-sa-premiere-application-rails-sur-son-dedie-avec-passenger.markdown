@@ -4,7 +4,7 @@ title: "Déployer sa première application Rails sur son dédié avec Passenger"
 date: 2014-11-09 01:54:44 +0100
 description: Tutoriel qui explique comment déployer sa première application rails sur un serveur dédié
 cover: /assets/header_image.jpg
-categories: rails french
+tags: rails french
 author: Simon Ninon
 ---
 

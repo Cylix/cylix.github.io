@@ -4,7 +4,7 @@ title: "Reflection in C++14"
 date: 2015-11-15 20:10:31 +0100
 description: Explanation of my implementation of a simple reflection engine in C++14
 cover: /assets/header_image.jpg
-categories: c++ english
+tags: c++ english
 author: Simon Ninon
 ---
 
