@@ -4,21 +4,14 @@ title: "Resources"
 permalink: /resources/
 ---
 
-{% for category in site.tags %}
-  {% capture cat %}{{ category | first }}{% endcapture %}
-  <h2 id="{{cat}}">{{ cat | capitalize }}</h2>
-  {% for desc in site.descriptions %}
-    {% if desc.cat == cat %}
-      <p class="desc"><em>{{ desc.desc }}</em></p>
-    {% endif %}
-  {% endfor %}
+{% for category in site.data.resources %}
+  <h2 id="{{category}}">{{ category.title | capitalize }}</h2>
   <ul class="posts-list">
-  {% for post in site.tags[cat] %}
+  {% for resource in category.items %}
     <li>
       <strong>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <a href="{{ resource.link }}">{{ resource.name }}</a>
       </strong>
-      <span class="post-date">- {{ post.date | date_to_long_string }}</span>
     </li>
   {% endfor %}
   </ul>
