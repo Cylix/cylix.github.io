@@ -14,7 +14,8 @@ subtitle: "Quick thoughts from a software engineer. Or longer ones."
 email: simon.ninon@gmail.com
 name: Simon Ninon
 description: >
-   Blog where I talk of topics I'm passionate about: code, cryptos, personal experiences. And code again.
+   Blog collecting some of my thoughts, technical writings and recommended readings.
+
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -80,20 +81,6 @@ descriptions:
 #     desc: Follow me on Twitter            # Description to display as link title, etc
 #     share: true                           # Include in the "Share" section of posts
 social:
-  - name: Twitter
-    icon: twitter
-    username: simon_ninon
-    url: https://twitter.com/simon_ninon
-    desc: Follow me on Twitter
-    share: true
-
-  - name: Facebook
-    icon: facebook
-    username: Simon.Ninon
-    url: https://www.facebook.com/Simon.Ninon
-    desc: Friend me on Facebook
-    share: true
-
   - name: GitHub
     icon: github
     username: Cylix
@@ -107,13 +94,6 @@ social:
     url: https://www.linkedin.com/in/simonninon/
     desc: Connect with me on LinkedIn
     share: true
-
-  - name: "Hacker News"
-    icon: hacker-news
-    username: cylix
-    url: https://news.ycombinator.com/user?id=cylix
-    desc: Share to Hacker News
-    share: false
 
 # Social sharing protocols
 # These are for automatically generating sharing metadata for FB and Twitter
