@@ -42,7 +42,7 @@
     name: "The Site Reliability Workbook: Practical Ways to Implement SRE"
     type: book
     link: "https://www.amazon.com/Site-Reliability-Workbook-Practical-Implement/dp/1492029505"
-    description: "To be read after "Site Reliability Engineering: How Google Runs Production Systems", provides more hands-on explanations."
+    description: "To be read after 'Site Reliability Engineering: How Google Runs Production Systems', provides more hands-on explanations."
 
 - title: Programming
   items:
@@ -59,12 +59,12 @@
     name: "More Effective C++: 35 New Ways to Improve Your Programs and Designs"
     type: book
     link: "https://www.amazon.fr/gp/product/020163371X/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
-    description: "Book following "Effective C++: 55 Specific Ways to Improve Your Programs and Designs"."
+    description: "Book following 'Effective C++: 55 Specific Ways to Improve Your Programs and Designs'."
 
     name: "Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library"
     type: book
     link: "https://www.amazon.fr/gp/product/0201749629/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
-    description: "Similar to "Effective C++: 55 Specific Ways to Improve Your Programs and Designs", but oriented toward STL utilization."
+    description: "Similar to 'Effective C++: 55 Specific Ways to Improve Your Programs and Designs', but oriented toward STL utilization."
 
     name: "Apprenez à programmer en C"
     type: book
