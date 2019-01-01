@@ -10,7 +10,8 @@ permalink: /resources/
   {% for resource in category.items %}
     <li>
       <strong>
-        <a href="{{ resource["link"] }}">{{ resource["name"] }}</a>
+        <a href="{{ resource.link }}">{{ resource.name }}</a>
+        ressource
       </strong>
     </li>
   {% endfor %}
