@@ -1,125 +1,125 @@
 - title: Security
   items:
-    name: "The Web Application Hacker's Handbook: Finding and Exploiting Security Flaws"
-    type: book
-    link: "https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470"
-    description: "Web security knowledge basics that EVERY web serious developer MUST know."
+    - name: "The Web Application Hacker's Handbook: Finding and Exploiting Security Flaws"
+      type: book
+      link: "https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470"
+      description: "Web security knowledge basics that EVERY web serious developer MUST know."
 
 - title: Web
   items:
-    name: "Web Application Architecture: Principles, Protocols and Practices"
-    type: book
-    link: "https://www.amazon.com/Web-Application-Architecture-Principles-Protocols/dp/047051860X"
-    description: "Web knowledge foundations for people interested in web development but lacking the appropriate background."
+    - name: "Web Application Architecture: Principles, Protocols and Practices"
+      type: book
+      link: "https://www.amazon.com/Web-Application-Architecture-Principles-Protocols/dp/047051860X"
+      description: "Web knowledge foundations for people interested in web development but lacking the appropriate background."
 
-    name: "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content"
-    type: rfc
-    link: "https://tools.ietf.org/html/rfc7231"
-    description: "HTTP/1.1 specifications, additional worth-reading HTTP/1.1-related RFCs are listed inside that RFC."
+    - name: "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content"
+      type: rfc
+      link: "https://tools.ietf.org/html/rfc7231"
+      description: "HTTP/1.1 specifications, additional worth-reading HTTP/1.1-related RFCs are listed inside that RFC."
 
-    name: "Hypertext Transfer Protocol Version 2 (HTTP/2)"
-    type: rfc
-    link: "https://tools.ietf.org/html/rfc7540"
-    description: "HTTP/2.0 specifications."
+    - name: "Hypertext Transfer Protocol Version 2 (HTTP/2)"
+      type: rfc
+      link: "https://tools.ietf.org/html/rfc7540"
+      description: "HTTP/2.0 specifications."
 
-    name: "QUIC: A UDP-Based Secure and Reliable Transport for HTTP/2"
-    type: rfc
-    link: "https://tools.ietf.org/html/draft-tsvwg-quic-protocol-00"
-    description: "Draft RFC for the QUIC UDP-based protocol, which will HTTP/3.0 barebone."
+    - name: "QUIC: A UDP-Based Secure and Reliable Transport for HTTP/2"
+      type: rfc
+      link: "https://tools.ietf.org/html/draft-tsvwg-quic-protocol-00"
+      description: "Draft RFC for the QUIC UDP-based protocol, which will HTTP/3.0 barebone."
 
-    name: "Google’s QUIC protocol: moving the web from TCP to UDP"
-    type: article
-    link: "https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/"
-    description: "Great introduction to the QUIC protocol & HTTP/3.0."
+    - name: "Google’s QUIC protocol: moving the web from TCP to UDP"
+      type: article
+      link: "https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/"
+      description: "Great introduction to the QUIC protocol & HTTP/3.0."
 
 - title: Infrastructure
   items:
-    name: "Site Reliability Engineering: How Google Runs Production Systems"
-    type: book
-    link: "https://www.amazon.com/Site-Reliability-Engineering-Production-Systems/dp/149192912X"
-    description: "Interesting reading about how google runs its production environment through its SRE team. One of the best reading I ever had."
+    - name: "Site Reliability Engineering: How Google Runs Production Systems"
+      type: book
+      link: "https://www.amazon.com/Site-Reliability-Engineering-Production-Systems/dp/149192912X"
+      description: "Interesting reading about how google runs its production environment through its SRE team. One of the best reading I ever had."
 
-    name: "The Site Reliability Workbook: Practical Ways to Implement SRE"
-    type: book
-    link: "https://www.amazon.com/Site-Reliability-Workbook-Practical-Implement/dp/1492029505"
-    description: "To be read after 'Site Reliability Engineering: How Google Runs Production Systems', provides more hands-on explanations."
+    - name: "The Site Reliability Workbook: Practical Ways to Implement SRE"
+      type: book
+      link: "https://www.amazon.com/Site-Reliability-Workbook-Practical-Implement/dp/1492029505"
+      description: "To be read after 'Site Reliability Engineering: How Google Runs Production Systems', provides more hands-on explanations."
 
 - title: Programming
   items:
-    name: "The C++ Programming Language"
-    type: book
-    link: "https://www.amazon.fr/gp/product/0321958322/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
-    description: "The C++ bible, probably more intended for very advanced C++ developers willing to discover very advance features of the language."
+    - name: "The C++ Programming Language"
+      type: book
+      link: "https://www.amazon.fr/gp/product/0321958322/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
+      description: "The C++ bible, probably more intended for very advanced C++ developers willing to discover very advance features of the language."
 
-    name: "Effective C++: 55 Specific Ways to Improve Your Programs and Designs"
-    type: book
-    link: "https://www.amazon.fr/gp/product/0321334876/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
-    description: "I can't imagine someone calling himself C++ developer without having read that book. Contains some of the core principles of modern C++ developments."
+    - name: "Effective C++: 55 Specific Ways to Improve Your Programs and Designs"
+      type: book
+      link: "https://www.amazon.fr/gp/product/0321334876/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
+      description: "I can't imagine someone calling himself C++ developer without having read that book. Contains some of the core principles of modern C++ developments."
 
-    name: "More Effective C++: 35 New Ways to Improve Your Programs and Designs"
-    type: book
-    link: "https://www.amazon.fr/gp/product/020163371X/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
-    description: "Book following 'Effective C++: 55 Specific Ways to Improve Your Programs and Designs'."
+    - name: "More Effective C++: 35 New Ways to Improve Your Programs and Designs"
+      type: book
+      link: "https://www.amazon.fr/gp/product/020163371X/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
+      description: "Book following 'Effective C++: 55 Specific Ways to Improve Your Programs and Designs'."
 
-    name: "Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library"
-    type: book
-    link: "https://www.amazon.fr/gp/product/0201749629/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
-    description: "Similar to 'Effective C++: 55 Specific Ways to Improve Your Programs and Designs', but oriented toward STL utilization."
+    - name: "Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library"
+      type: book
+      link: "https://www.amazon.fr/gp/product/0201749629/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
+      description: "Similar to 'Effective C++: 55 Specific Ways to Improve Your Programs and Designs', but oriented toward STL utilization."
 
-    name: "Apprenez à programmer en C"
-    type: book
-    link: "https://www.amazon.com/Apprenez-%C3%A0-programmer-2e-%C3%A9dition/dp/B006MV70GS/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1546271887&sr=8-1"
-    description: "French book introducing C language, intended for beginners. This is the first ever CS book I ever read when I was a teenage: it made me love programming and truly changed my life."
+    - name: "Apprenez à programmer en C"
+      type: book
+      link: "https://www.amazon.com/Apprenez-%C3%A0-programmer-2e-%C3%A9dition/dp/B006MV70GS/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1546271887&sr=8-1"
+      description: "French book introducing C language, intended for beginners. This is the first ever CS book I ever read when I was a teenage: it made me love programming and truly changed my life."
 
-    name: "Programmez en orienté objet en PHP"
-    type: book
-    link: "https://www.amazon.com/Programmez-orient%C3%A9-objet-PHP/dp/B00AENY5T0/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1546271887&sr=8-4-fkmr0"
-    description: "French book introducing web development with PHP. Should be coupled with a book providing web knowledge basics if possible. Second CS book I read when I was a teenage and made me discover about web."
+    - name: "Programmez en orienté objet en PHP"
+      type: book
+      link: "https://www.amazon.com/Programmez-orient%C3%A9-objet-PHP/dp/B00AENY5T0/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=1546271887&sr=8-4-fkmr0"
+      description: "French book introducing web development with PHP. Should be coupled with a book providing web knowledge basics if possible. Second CS book I read when I was a teenage and made me discover about web."
 
-    name: "ISO-8601, YYYY, yyyy, and why your year may be wrong"
-    type: article
-    link: "https://ericasadun.com/2018/12/25/iso-8601-yyyy-yyyy-and-why-your-year-may-be-wrong/"
-    description: "Short reading clarifying yyyy and YYYY difference in date formatting"
+    - name: "ISO-8601, YYYY, yyyy, and why your year may be wrong"
+      type: article
+      link: "https://ericasadun.com/2018/12/25/iso-8601-yyyy-yyyy-and-why-your-year-may-be-wrong/"
+      description: "Short reading clarifying yyyy and YYYY difference in date formatting"
 
 - title: Tools
   items:
-    name: "Git Book"
-    type: book
-    link: "https://git-scm.com/book/en/v2"
-    description: "A MUST read for any serious developer. You should not even consider asking a git question to someone else if you haven't even read that."
+    - name: "Git Book"
+      type: book
+      link: "https://git-scm.com/book/en/v2"
+      description: "A MUST read for any serious developer. You should not even consider asking a git question to someone else if you haven't even read that."
 
 - title: Algorithms
   items:
-    name: "Cracking the Coding Interview"
-    type: book
-    link: "https://www.amazon.com/gp/product/0984782850/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
-    description: "Well-designed book making it easy to review basic data structures and prepare algorithms questions."
+    - name: "Cracking the Coding Interview"
+      type: book
+      link: "https://www.amazon.com/gp/product/0984782850/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
+      description: "Well-designed book making it easy to review basic data structures and prepare algorithms questions."
 
-    name: "The Algorithm Design Manual"
-    type: book
-    link: "https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202/ref=pd_sim_14_3?_encoding=UTF8&pd_rd_i=1849967202&pd_rd_r=c78a856f-0d11-11e9-9ef4-cd8437a4562f&pd_rd_w=2iETA&pd_rd_wg=76Cy0&pf_rd_p=18bb0b78-4200-49b9-ac91-f141d61a1780&pf_rd_r=49RZNCW20S84R8TF6CEE&psc=1&refRID=49RZNCW20S84R8TF6CEE"
-    description: "Detailed explanations about various data structures with several algorithms challenges."
+    - name: "The Algorithm Design Manual"
+      type: book
+      link: "https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202/ref=pd_sim_14_3?_encoding=UTF8&pd_rd_i=1849967202&pd_rd_r=c78a856f-0d11-11e9-9ef4-cd8437a4562f&pd_rd_w=2iETA&pd_rd_wg=76Cy0&pf_rd_p=18bb0b78-4200-49b9-ac91-f141d61a1780&pf_rd_r=49RZNCW20S84R8TF6CEE&psc=1&refRID=49RZNCW20S84R8TF6CEE"
+      description: "Detailed explanations about various data structures with several algorithms challenges."
 
 - title: Entrepreneurship
   items:
-    name: "Zero to One: Notes on Startups, or How to Build the Future"
-    type: book
-    link: "https://www.amazon.com/gp/product/0804139296/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
-    description: "Inpirational entrepreneurship book from Paypal founder"
+    - name: "Zero to One: Notes on Startups, or How to Build the Future"
+      type: book
+      link: "https://www.amazon.com/gp/product/0804139296/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1"
+      description: "Inpirational entrepreneurship book from Paypal founder"
 
 - title: Physics
   items:
-    name: "Le cantique des quantiques"
-    type: book
-    link: "https://www.amazon.fr/gp/product/2707153486/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
-    description: "French book abording quantum physics."
+    - name: "Le cantique des quantiques"
+      type: book
+      link: "https://www.amazon.fr/gp/product/2707153486/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1"
+      description: "French book abording quantum physics."
 
-    name: "The Universe in a Nutshell"
-    type: book
-    link: "https://www.amazon.fr/gp/product/055380202X/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1"
-    description: "Popular-science book from Hawking, detailing core universe theories."
+    - name: "The Universe in a Nutshell"
+      type: book
+      link: "https://www.amazon.fr/gp/product/055380202X/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1"
+      description: "Popular-science book from Hawking, detailing core universe theories."
 
-    name: "A Brief History Of Time: From Big Bang To Black Holes"
-    type: book
-    link: "https://www.amazon.fr/gp/product/0857501003/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1"
-    description: "Popular-science book from Hawking, detailing black holes theories."
+    - name: "A Brief History Of Time: From Big Bang To Black Holes"
+      type: book
+      link: "https://www.amazon.fr/gp/product/0857501003/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1"
+      description: "Popular-science book from Hawking, detailing black holes theories."
