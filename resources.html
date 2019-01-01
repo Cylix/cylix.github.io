@@ -16,11 +16,9 @@ permalink: /resources/
       </section>
 
       <section class="post-excerpt" itemprop="description">
-        <p>{{ resource.description }}</p>
-      </section>
-
-      <section class="post-meta">
-        <div class="post-date">{{ resource.type }}</div>
+        {{ resource.description }}
+        <br/>
+        <span class="post-date">{{ resource.type }}</span>
       </section>
     </li>
   {% endfor %}
