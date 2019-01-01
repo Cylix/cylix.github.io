@@ -5,7 +5,7 @@ permalink: /resources/
 ---
 
 {% for category in site.data.resources %}
-  <h2 id="{{category}}">{{ category.title | capitalize }}</h2>
+  <h2>{{ category.title | capitalize }}</h2>
   <ul class="posts-list">
   {% for resource in category.items %}
     <li>
