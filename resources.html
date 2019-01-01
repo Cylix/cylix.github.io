@@ -9,9 +9,19 @@ permalink: /resources/
   <ul class="posts-list">
   {% for resource in category.items %}
     <li>
-      <strong>
-        <a href="{{ resource.link }}">{{ resource.name }}</a>
-      </strong>
+      <section>
+        <strong>
+          <a href="{{ resource.link }}">{{ resource.name }}</a>
+        </strong>
+      </section>
+
+      <section class="post-excerpt" itemprop="description">
+        <p>{{ resource.description }}</p>
+      </section>
+
+      <section class="post-meta">
+        <div class="post-date">{{ resource.type }}</div>
+      </section>
     </li>
   {% endfor %}
   </ul>
