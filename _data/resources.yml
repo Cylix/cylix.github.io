@@ -3,7 +3,7 @@
     - name: "Git Book"
       type: book
       link: "https://git-scm.com/book/en/v2"
-      description: "A MUST read for any serious developer. You should not even consider asking a git question to someone else if you haven't even read that."
+      description: "A MUST read for any serious developer. Answers most common and basic git questions & confusions."
 
 - title: Infrastructure
   items:
