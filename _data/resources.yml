@@ -5,6 +5,21 @@
       link: "https://git-scm.com/book/en/v2"
       description: "A must read for any developer. Answers most common git questions & confusions."
 
+    - name: "Semantic Versioning 2.0.0"
+      type: article
+      link: "https://semver.org/"
+      description: "How to properly version a software."
+
+    - name: "How to Write a Git Commit Message"
+      type: article
+      link: "https://chris.beams.io/posts/git-commit/"
+      description: "Tips about how to properly write meaningful git messages."
+
+    - name: "Comparing Workflows"
+      type: article
+      link: "https://www.atlassian.com/git/tutorials/comparing-workflows"
+      description: "Explanation of the major git workflows."
+
 - title: Infrastructure
   items:
     - name: "Site Reliability Engineering: How Google Runs Production Systems"
