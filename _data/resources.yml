@@ -3,7 +3,7 @@
     - name: "Git Book"
       type: book
       link: "https://git-scm.com/book/en/v2"
-      description: "A MUST read for any serious developer. Answers most common and basic git questions & confusions."
+      description: "A must read for any developer. Answers most common git questions & confusions."
 
 - title: Infrastructure
   items:
@@ -22,7 +22,7 @@
     - name: "The Web Application Hacker's Handbook: Finding and Exploiting Security Flaws"
       type: book
       link: "https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470"
-      description: "Web security knowledge basics that any serious web developer must know."
+      description: "Web security knowledge that any web developer must know to avoid building unsecure applications."
 
 - title: Web
   items:
