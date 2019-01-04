@@ -100,6 +100,23 @@
       link: "https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202/ref=pd_sim_14_3?_encoding=UTF8&pd_rd_i=1849967202&pd_rd_r=c78a856f-0d11-11e9-9ef4-cd8437a4562f&pd_rd_w=2iETA&pd_rd_wg=76Cy0&pf_rd_p=18bb0b78-4200-49b9-ac91-f141d61a1780&pf_rd_r=49RZNCW20S84R8TF6CEE&psc=1&refRID=49RZNCW20S84R8TF6CEE"
       description: "Detailed explanations about various data structures with several algorithms challenges."
 
+- title: Cryptos
+  items:
+    - name: "Bitcoin: A Peer-to-Peer Electronic Cash System"
+      type: paper
+      link: "https://bitcoin.org/bitcoin.pdf"
+      description: Original bitcoin paper
+
+    - name: "A Next-Generation Smart Contract and Decentralized Application Platform"
+      type: paper
+      link: "https://github.com/ethereum/wiki/wiki/White-Paper"
+      description: Ethereum white-paper
+
+    - name: "The Tangle"
+      type: paper
+      link: "https://assets.ctfassets.net/r1dr6vzfxhev/2t4uxvsIqk0EUau6g2sw0g/45eae33637ca92f85dd9f4a3a218e1ec/iota1_4_3.pdf"
+      description: "IOTA original paper describing the tangle mechanism"
+
 - title: Entrepreneurship
   items:
     - name: "Zero to One: Notes on Startups, or How to Build the Future"
