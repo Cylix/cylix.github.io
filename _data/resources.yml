@@ -1,4 +1,4 @@
-- title: Tools
+- title: Software Engineering
   items:
     - name: "Git Book"
       type: book
@@ -19,6 +19,11 @@
       type: article
       link: "https://www.atlassian.com/git/tutorials/comparing-workflows"
       description: "Explanation of the major git workflows."
+
+    - name: "Our Software Dependency Problem"
+      type: article
+      link: "https://research.swtch.com/deps"
+      description: "Write-up summarizing how to properly chose dependencies"
 
 - title: Infrastructure
   items:
@@ -114,6 +119,18 @@
       type: book
       link: "https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202/ref=pd_sim_14_3?_encoding=UTF8&pd_rd_i=1849967202&pd_rd_r=c78a856f-0d11-11e9-9ef4-cd8437a4562f&pd_rd_w=2iETA&pd_rd_wg=76Cy0&pf_rd_p=18bb0b78-4200-49b9-ac91-f141d61a1780&pf_rd_r=49RZNCW20S84R8TF6CEE&psc=1&refRID=49RZNCW20S84R8TF6CEE"
       description: "Detailed explanations about various data structures with several algorithms challenges."
+
+- title: Management & Leadership
+  items:
+    - name: "Juniors, seniors, and mentors"
+      type: article
+      link: "http://jpetazzo.github.io/2018/08/15/junior-senior-mentor/"
+      description: Interesting write-up detailing the goal of a senior engineer and the importance of setting a learning culture.
+
+    - name: "The 21 Irrefutable Laws of Leadership: Follow Them and People Will Follow You"
+      type: book
+      link: "https://www.amazon.com/21-Irrefutable-Laws-Leadership-Anniversary/dp/0785288376/ref=sr_1_1?ie=UTF8&qid=1547191081&sr=8-1&keywords=the+21+irrefutable+laws+of+leadership+by+john+maxwell"
+      description: Best-seller about leadership. Interesting conduct rules for junior managers aiming to grow leadership skills.
 
 - title: Cryptos
   items:
