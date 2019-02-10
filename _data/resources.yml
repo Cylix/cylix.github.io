@@ -24,6 +24,11 @@
       type: article
       link: "https://research.swtch.com/deps"
       description: "Write-up summarizing how to properly chose dependencies"
+      
+    - name: "How to Read an RFC"
+      type: article
+      link: https://www.ietf.org/blog/how-read-rfc/
+      description: "An IETF article about how to read an RFC. Based on IETF/HTTP RFCs, but contains valid advices for any kind of RFCs."
 
 - title: Infrastructure
   items:
@@ -107,6 +112,11 @@
       type: article
       link: "https://ericasadun.com/2018/12/25/iso-8601-yyyy-yyyy-and-why-your-year-may-be-wrong/"
       description: "Short reading clarifying yyyy and YYYY difference in date formatting"
+      
+    - name: "HTTP/3: From root to tip"
+      type: article
+      link: https://blog.cloudflare.com/http-3-from-root-to-tip/
+      description: "Great article detailing how the IETF works to standardize the internet (in particular, the HTTP protocol)."
 
 - title: Algorithms
   items:
