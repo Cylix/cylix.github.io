@@ -75,6 +75,11 @@
       type: article
       link: "https://ma.ttias.be/googles-quic-protocol-moving-web-tcp-udp/"
       description: "Great introduction to the QUIC protocol & HTTP/3.0."
+      
+    - name: "How Browsers Work: Behind the scenes of modern web browsers"
+      type: article
+      link: "https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/"
+      description: "Dive into how browsers work internally (in particular, parsing & rendering)"
 
 - title: Programming
   items:
