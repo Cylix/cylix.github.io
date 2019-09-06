@@ -29,6 +29,11 @@
       type: article
       link: https://www.ietf.org/blog/how-read-rfc/
       description: "An IETF article about how to read an RFC. Based on IETF/HTTP RFCs, but contains valid advices for any kind of RFCs."
+      
+    - name: "Google's Engineering Practices documentation"
+      type: articles
+      link: https://google.github.io/eng-practices/
+      description: "Google's Engineering Practices documentation. For now, only contains documentation about code review process, but very good advices so far."
 
 - title: Infrastructure
   items:
